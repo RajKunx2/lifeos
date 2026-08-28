@@ -1,0 +1,119 @@
+/* Minimal dark dashboard styling — a trimmed-down version of the design
+   tokens used in the full app, kept self-contained for this sample. */
+
+:root {
+  --ground:      #0a0a0a;
+  --surface:     #141414;
+  --surface-2:   #1c1c1c;
+  --hairline:    rgba(255, 255, 255, 0.07);
+  --hairline-2:  rgba(255, 255, 255, 0.12);
+  --ink:         #f7f7f8;
+  --ink-2:       rgba(247, 247, 248, 0.68);
+  --ink-3:       rgba(247, 247, 248, 0.52);
+  --ink-4:       rgba(247, 247, 248, 0.36);
+  --blue:        #1d6df0;
+  --blue-lift:   #3d86ff;
+  --green:       #34c759;
+  --yellow:      #ffcc00;
+  --red:         #ff453a;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --s5: #d55181; --s6: #9085e9; --s7: #008300; --s8: #e66767;
+  --s-other: #6b7280;
+  --r-card: 20px;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell { max-width: 1180px; margin: 0 auto; padding: 40px 24px 80px; }
+
+.topbar { margin-bottom: 24px; }
+.page-title { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; }
+.page-sub { font-size: 13px; color: var(--ink-3); margin-top: 4px; }
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--surface);
+  border-radius: var(--r-card);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.card.flush { padding: 18px 0 0; }
+.c3 { grid-column: span 3; }
+.c4 { grid-column: span 4; }
+.c5 { grid-column: span 5; }
+.c6 { grid-column: span 6; }
+.c7 { grid-column: span 7; }
+.c9 { grid-column: span 9; }
+.c12 { grid-column: span 12; }
+
+.card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding: 0 0 4px; }
+.card.flush .card-head { padding: 0 18px 12px; }
+.label { font-size: 13px; font-weight: 650; color: var(--ink); }
+.sublabel { font-size: 11.5px; color: var(--ink-3); line-height: 1.5; }
+
+.row { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.col { display: flex; flex-direction: column; min-width: 0; }
+.between { justify-content: space-between; }
+.wrap { flex-wrap: wrap; }
+.grow { flex: 1; min-width: 0; }
+.g6 { gap: 6px; } .g8 { gap: 8px; } .g10 { gap: 10px; } .g12 { gap: 12px; } .g16 { gap: 16px; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tnum { font-variant-numeric: tabular-nums; }
+.figure-sm { font-size: 20px; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+.pill {
+  display: inline-flex; align-items: center; height: 22px; padding: 0 10px;
+  border-radius: 999px; font-size: 11px; font-weight: 600; white-space: nowrap;
+}
+.pill-flat { background: rgba(255,255,255,.08); color: var(--ink-2); }
+.pill-pos  { background: rgba(52,199,89,.16); color: var(--green); }
+.pill-warn { background: rgba(255,204,0,.16); color: var(--yellow); }
+
+/* quick actions */
+.qa-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.qa-btn {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+  border-radius: 12px; background: var(--surface-2); color: var(--ink-2);
+  font-size: 12.5px; font-weight: 520; text-decoration: none;
+}
+.qa-btn svg { width: 16px; height: 16px; flex: none; }
+
+/* expenses table */
+.tbl-wrap { overflow-x: auto; padding: 0 18px 18px; }
+.tbl { width: 100%; border-collapse: collapse; min-width: 480px; }
+.tbl th {
+  text-align: left; padding: 8px 10px; font-size: 10px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3);
+  border-bottom: 1px solid var(--hairline);
+}
+.tbl th.num { text-align: right; }
+.tbl td { padding: 10px 10px; font-size: 12.5px; color: var(--ink-2); border-top: 1px solid var(--hairline); }
+.tbl td.num { text-align: right; color: var(--ink); }
+.tbl .row-label { color: var(--ink); font-weight: 520; }
+.cat-dot { width: 7px; height: 7px; border-radius: 3px; display: inline-block; margin-right: 6px; }
+
+/* budgets */
+.budget-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.budget-tile { border: 1px solid var(--hairline); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.budget-name { font-size: 12px; color: var(--ink-2); }
+.budget-amt { font-size: 15px; font-weight: 650; }
+
+@media (max-width: 900px) {
+  .c3, .c4, .c5, .c6, .c7, .c9 { grid-column: span 12; }
+  .budget-grid { grid-template-columns: 1fr; }
+}
